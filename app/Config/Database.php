@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'docker_db',
-        'password'     => '12345',
+        'username'     => 'root',
+        'password'     => 'root',
         'database'     => 'umuttepe_turizm',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',

@@ -1,8 +1,5 @@
-<!DOCTYPE php>
 
-<php>
-
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/VoyageTime by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:30 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:39 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +13,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - Sefer Saati</title>
+    <title>Bus  - Üyelik Girişi</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -90,9 +87,7 @@
                     <a class="navbar-brand" href="Index.php">
                         <img class="logo" src="../../img/bus/bbbuslogo.png">
                     </a>
-                    <a class="navbar-brand d-none d-sm-block" href="../Home/Index.php">
-                        <img class="burulasLogo" src="../../img/burulasLogo.png">
-                    </a>
+                  
                 </div>
                 
 <div class="drawer drawer-right slide" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true" id="drawer-demo">
@@ -101,7 +96,14 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-8">
                     <div class="dropdown">
-                        
+                        <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mobilMenuLink" id="language" style="font-size: 18px;">TR</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="../Bus.php">TR</a>
+                            <a class="dropdown-item" href="../../en/Bus.php">EN</a>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-4">
@@ -149,7 +151,7 @@
                     Biletlerim / Bilet İptal
                 </a>
             </span>
-           
+          
             <span class="mobilMenuLink">
                 <a href="Login.php">
                     Giriş Yap
@@ -165,6 +167,7 @@
     </div>
 </div>
 
+
                 <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#drawer-demo" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars" aria-hidden="true"></i>
 
@@ -177,7 +180,7 @@
                         <li class="nav-item  ml-4 mr-4 ">
                             <a class="nav-link SemiBold" href="TicketPrice.php">Fiyat Listesi</a>
                         </li>
-                        <li class="nav-item ml-4  mr-4 active">
+                        <li class="nav-item ml-4  mr-4 ">
                             <a class="nav-link SemiBold" href="VoyageTime.php" tabindex="-1" aria-disabled="true">Sefer Saatleri</a>
                         </li>
                         <li class="nav-item  ml-4 mr-4 ">
@@ -189,7 +192,11 @@
                     </ul>
 
                     <div class="dropdown">
-    
+    <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       
+    </button>
+   
+</div>
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
         </a> 
@@ -217,130 +224,58 @@
 
     </div>
 
-    
+    <div class="headerTitle">Üyelik Girişi</div>
+<form id="frmRegister">
+    <div class="container">
 
-
-<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
-<!-- Bootstrap core CSS -->
-
-<link href="../../css/bootstrap.min.css" rel="stylesheet" />
-<link href="../../css/busmain.css" rel="stylesheet" />
-<link href="../../lib/jquery-ui/jquery-ui.css" rel="stylesheet" />
-<style>
-
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-
-
-    .ui-datepicker-inline {
-        width: 100%;
-    }
-
-    .ui-widget.ui-widget-content {
-        border: none;
-    }
-
-    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-        font-weight: normal;
-        font-family: 'Montserrat-SemiBold';
-        color: #102E64;
-        font-size: 14px;
-        border: none;
-        text-align: center;
-        width: 30px;
-        height: 27px;
-    }
-
-    .ui-state-active {
-        border: 1px solid #dad55e;
-        background: #102E64 !important;
-        color: #25CE6C !important;
-        border: none;
-        border-radius: 4px;
-        text-align: center;
-    }
-
-    .ui-widget-header {
-        border: none;
-        background: white;
-        color: #102E64;
-        font-weight: unset;
-        font-family: 'Montserrat-SemiBold';
-    }
-
-    .ui-datepicker th {
-        padding: .7em .3em;
-        text-align: center;
-        font-weight: bold;
-        border: 0;
-        color: #102E64;
-        font-family: 'Montserrat-Light';
-    }
-
-    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
-        border: none;
-        background: white;
-        color: #102E64;
-    }
-
-    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, php .ui-button.ui-state-disabled:hover, php .ui-button.ui-state-disabled:active {
-        background-color: white;
-    }
-</style>
-<!-- Custom styles for this template -->
-<script>
-      var lang = 'tr';
-
-</script>
-<link href="../../css/carousel.css" rel="stylesheet" />
-<div class="container">
-    <div class="city">
-        <div class="col-lg-7 fromTo">
-            <div class="row p-0 pb-4 pt-3">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="ml-3 mt-1">
-                        <span class="homeSearchTitle priceListFromAndToTitle">Yön</span>
-                        <select class="form-control btn dropdown-toggle SemiBold text-left selectButton" id="routes" style="height: 46px;    margin-top: 9px;" onchange="GetSeferSaatleri()"></select>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <img width="3.4%" class="searchVoyageIconStyle d-block d-sm-none" src="../../img/fiyatListesiIcon.png">
-        </div>
-        <div class="col-lg-7 fromToVoyage">
-            <div class="row border-between">
-                <div class="col-lg-6 p-3">
-                    <div id="calendar"></div>
-                </div>
-                <div class="col-lg-6 pl-0 pr-0">
-                    <div class="fromToVoyageInner w-100 text-center pt-2 pb-2">
-                        <span class="SemiBold">Seçili Yönde</span>
-                    </div>
-                    <div class="fromToVoyageTimesContainer">
-                        <div class="row mx-0 justify-content-center" id="seferSaatleri">
-
-
-
+        <div class="city">
+            <div class="col-lg-7 specialOfferContainer pl-0 pr-0">
+                <div  id="loginform"  >
+                    <div class="bsn-cont pb-2">
+                        <div class="bsn-cont-header mb-4">
+                            <div class="profile-info-header pl-5">Üyelik Girişi Formu</div>
+                        </div>
+                        <div class="row pl-5 pr-5 mb-4">
+                            <div class="col-lg-6">
+                                <label for="username" class="profile-info-inner-header">E-Mail / T.C No / Telefon</label>
+                                <input type="text" class="form-control only-bottom pl-0" id="username">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="password" class="profile-info-inner-header">Şifre</label>
+                                <input type="password" class="form-control only-bottom pl-0" id="password" r>
+                            </div>
                         </div>
 
                     </div>
+                    <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="Login()"  value="Giriş Yap"/>
+                    <br/>
+                    
                 </div>
+                
+                
+                <div id="forgotform" style="display: none">
+                    <div class="bsn-cont pb-2">
+                        <div class="bsn-cont-header mb-4">
+                            <div class="profile-info-header pl-5">Şifremi Unuttum Formu</div>
+                        </div>
+                        <div class="row pl-5 pr-5 mb-4">
+                            <div class="col-lg-6">
+                                <label for="forgottenEmail" class="profile-info-inner-header">Email</label>
+                                <input type="text" class="form-control only-bottom pl-0" id="forgottenEmail">
+                            </div>
+                 
+                        </div>
+                        
+                    </div>
+                    <input type="button" id="forgottenButton" class="btn btn-success btn-block p-2 mb-3" onclick="ForgotPasswordMobil()"  value="Yeni Şifre"/>
+                    <br/>
+                    <b><a href="#" onclick="ChangeLoginForm()"> Üyelik Girişi</a></b>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-
-
+</form>
 
 
 
@@ -478,13 +413,13 @@
 
     <div class="altKusak">
         <div class="col-lg-12 icon text-center">
-            <a href="https://www.facebook.com" target="_blank">
+            <a href="https://www.facebook.com/burulasulasim" target="_blank">
                 <img src="../../img/fb.png">
             </a>
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com/bursaulasim" target="_blank">
                 <img src="../../img/twitter.png">
             </a>
-            <a href="https://www.instagram.com" target="_blank">
+            <a href="https://www.instagram.com/burulasulasim" target="_blank">
                 <img src="../../img/instagram.png">
             </a>
 
@@ -492,6 +427,11 @@
     </div>
    
 </footer>
+
+
+
+
+
 
 
 <script>
@@ -564,11 +504,13 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-    <script src="../../lib/jquery-ui/jquery-ui.js"></script>
-    <script src="../../lib/jquery-ui/datepicker-tr.js"></script>
-    <script src="../../js/Busjs/VoyageTimes.js"></script>
+    <script>
+        var jsLang = 'tr';
+        var emailIncorrect = 'Email hatalı girdiniz.';
+    </script>
+    <script src="../../js/Userjs/BusUser4ea7.js?v=lU6Rrpmq25x6EvJCEsRWzzSnlnozYcgVvCYT5z7wwCM"> </script>
+
 
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/VoyageTime by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:33 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->

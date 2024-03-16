@@ -1,8 +1,5 @@
-<!DOCTYPE php>
 
-<php>
-
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:39 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Register by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +13,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - Üyelik Girişi</title>
+    <title>Bus  - Üye Olma Formu</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -90,7 +87,9 @@
                     <a class="navbar-brand" href="Index.php">
                         <img class="logo" src="../../img/bus/bbbuslogo.png">
                     </a>
-                  
+                    <a class="navbar-brand d-none d-sm-block" href="../Home/Index.php">
+                        <img class="burulasLogo" src="../../img/burulasLogo.png">
+                    </a>
                 </div>
                 
 <div class="drawer drawer-right slide" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true" id="drawer-demo">
@@ -102,11 +101,7 @@
                         <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mobilMenuLink" id="language" style="font-size: 18px;">TR</span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="../Bus.php">TR</a>
-                            <a class="dropdown-item" href="../../en/Bus.php">EN</a>
-
-                        </div>
+                   
                     </div>
                 </div>
                 <div class="col-4">
@@ -154,7 +149,7 @@
                     Biletlerim / Bilet İptal
                 </a>
             </span>
-          
+            
             <span class="mobilMenuLink">
                 <a href="Login.php">
                     Giriş Yap
@@ -196,9 +191,13 @@
 
                     <div class="dropdown">
     <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-       
+        
     </button>
-   
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="../Bus.php">TR</a>
+        <a class="dropdown-item" href="../../en/Bus.php">EN</a>
+
+    </div>
 </div>
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
@@ -227,53 +226,106 @@
 
     </div>
 
-    <div class="headerTitle">Üyelik Girişi</div>
+    <div class="headerTitle">Üyelik</div>
 <form id="frmRegister">
     <div class="container">
 
         <div class="city">
             <div class="col-lg-7 specialOfferContainer pl-0 pr-0">
-                <div  id="loginform"  >
-                    <div class="bsn-cont pb-2">
-                        <div class="bsn-cont-header mb-4">
-                            <div class="profile-info-header pl-5">Üyelik Girişi Formu</div>
+                <div class="bsn-cont pb-2">
+                    <div class="bsn-cont-header mb-4">
+                        <div class="profile-info-header pl-5">Kimlik Bilgileri</div>
+                    </div>
+                    <div class="row pl-5 pr-5 mb-4">
+                        <div class="col-lg-6">
+                            <label for="adi" class="profile-info-inner-header">Ad</label>
+                            <input class="form-control only-bottom pl-0" id="adi">
                         </div>
-                        <div class="row pl-5 pr-5 mb-4">
-                            <div class="col-lg-6">
-                                <label for="username" class="profile-info-inner-header">E-Mail / T.C No / Telefon</label>
-                                <input type="text" class="form-control only-bottom pl-0" id="username">
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="password" class="profile-info-inner-header">Şifre</label>
-                                <input type="password" class="form-control only-bottom pl-0" id="password" r>
-                            </div>
+                        <div class="col-lg-6">
+                            <label for="soyadi" class="profile-info-inner-header">Soyad</label>
+                            <input class="form-control only-bottom pl-0" id="soyadi">
                         </div>
+                    </div>
+                    <div class="row pl-5 pr-5 mb-4">
+                        <div class="col-6">
+                            <label for="birthdate" class="profile-info-inner-header">Doğum Tarihi</label>
+                            <input class="form-control only-bottom pl-0" id="birthdate" data-mask="99/99/9999">
+                        </div>
+                    </div>
+                    <div class="row pl-5 pr-5 mb-4">
+                        <div class="col-lg-6 my-auto">
+                            <label for="uyruk" class="profile-info-inner-header">Uyruk</label>
+                            <select class="form-control form-control btn dropdown-toggle  text-left" id="uyruk">
+                                        <option value="0">TC</option>
+                                        <option value="1">Di&#x11F;er</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="tcidentity" class="profile-info-inner-header">T.C. Kimlik Numarası</label>
+                            <input class="form-control only-bottom pl-0" id="tcidentity" pattern="\d*" maxlength="11" type="text">
+                        </div>
+                    </div>
+                    <div class="row pl-5 pr-5 mb-4" id="divExtra" style="display: none;">
+                        <div class="col-lg-6  my-auto">
+                            <label for="cinsiyet" class="profile-info-inner-header">Cinsiyet</label>
+                            <select class="form-control form-control btn dropdown-toggle  text-left" id="cinsiyet">
+                                        <option value="-1">L&#xFC;tfen Cinsiyet Se&#xE7;iniz</option>
+                                        <option value="0">Kad&#x131;n</option>
+                                        <option value="1">Erkek</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="bsn-cont pb-2">
+                    <div class="bsn-cont-header mb-4">
+                        <div class="profile-info-header pl-5">İletişim Bilgileri</div>
                     </div>
-                    <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="Login()"  value="Giriş Yap"/>
-                    <br/>
+                    <div class="row pl-5 pr-5 mb-4">
+                        <div class="col-lg-6">
+                            <label for="telefon" class="profile-info-inner-header">Cep Telefonu</label>
+                            <input class="form-control only-bottom pl-0" id="telefon" data-mask="999 999 99 99">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="email" class="profile-info-inner-header">E-Mail</label>
+                            <input class="form-control only-bottom pl-0" id="email" name="email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bsn-cont pb-2">
+                    <div class="bsn-cont-header mb-4">
+                        <div class="profile-info-header pl-5">Şifre Oluştur</div>
+                    </div>
+                    <div class="row pl-5 pr-5 mb-4">
+                        <div class="col-lg-6">
+                            <label for="passwordregister" class="profile-info-inner-header">Şifre</label>
+                            <input class="form-control only-bottom pl-0" id="passwordregister" name="password" type="password">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="newpassword" class="profile-info-inner-header">Şifre Tekrar</label>
+                            <input class="form-control only-bottom pl-0" id="newpassword" name="newpassword" type="password">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bsn-cont pb-2">
+                    <div class="bsn-cont-header mb-4">
+                        <div class="profile-info-header pl-5">Üyelik Sözleşmesi</div>
+                    </div>
                     
-                </div>
-                
-                
-                <div id="forgotform" style="display: none">
-                    <div class="bsn-cont pb-2">
-                        <div class="bsn-cont-header mb-4">
-                            <div class="profile-info-header pl-5">Şifremi Unuttum Formu</div>
-                        </div>
-                        <div class="row pl-5 pr-5 mb-4">
-                            <div class="col-lg-6">
-                                <label for="forgottenEmail" class="profile-info-inner-header">Email</label>
-                                <input type="text" class="form-control only-bottom pl-0" id="forgottenEmail">
-                            </div>
-                 
-                        </div>
-                        
+                    <div class="form-check pl-5 mb-4 pb-3">
+                        <input type="checkbox" class="form-check-input ml-1" id="exampleCheck2">
+                        <label class="form-check-label pl-5" for="exampleCheck2">
+                            <span class="signup-green"><a href="Kvkkc321.php?pageno=3" target="_blank">KVKK Kuralları</a></span>
+                            <span class="contact-regular">’nı okudum ve kabul ediyorum.</span>
+                        </label>
                     </div>
-                    <input type="button" id="forgottenButton" class="btn btn-success btn-block p-2 mb-3" onclick="ForgotPasswordMobil()"  value="Yeni Şifre"/>
-                    <br/>
-                    <b><a href="#" onclick="ChangeLoginForm()"> Üyelik Girişi</a></b>
+                   
                 </div>
+
+                <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="Register()" value="Bilgilerimi Kaydet"/>
+                <a href="Index.php" class="btn btn-danger btn-block p-2 mb-3">İptal</a>
 
             </div>
         </div>
@@ -416,13 +468,13 @@
 
     <div class="altKusak">
         <div class="col-lg-12 icon text-center">
-            <a href="https://www.facebook.com/burulasulasim" target="_blank">
+            <a href="https://www.facebook.com" target="_blank">
                 <img src="../../img/fb.png">
             </a>
-            <a href="https://twitter.com/bursaulasim" target="_blank">
+            <a href="https://twitter.com" target="_blank">
                 <img src="../../img/twitter.png">
             </a>
-            <a href="https://www.instagram.com/burulasulasim" target="_blank">
+            <a href="https://www.instagram.com" target="_blank">
                 <img src="../../img/instagram.png">
             </a>
 
@@ -434,8 +486,7 @@
 
 
 
-
-
+    
 
 <script>
         var emailIncorrect = 'Email hatalı girdiniz.';
@@ -507,14 +558,47 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-    <script>
-        var jsLang = 'tr';
-        var emailIncorrect = 'Email hatalı girdiniz.';
-    </script>
-    <script src="../../js/Userjs/BusUser4ea7.js?v=lU6Rrpmq25x6EvJCEsRWzzSnlnozYcgVvCYT5z7wwCM"> </script>
+        <script src="../../js/Userjs/BusUser4ea7.js?v=lU6Rrpmq25x6EvJCEsRWzzSnlnozYcgVvCYT5z7wwCM"></script>
 
-
+            <script>
+                $(document).ready(function () {
+                    $("#frmRegister").validate({
+                        rules: {
+                            password: {
+                                required: true,
+                                minlength: 6
+                            },
+                            newpassword: {
+                                required: true,
+                                minlength: 6,
+                                equalTo: "#passwordregister"
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            }
+                        },
+                        messages: {
+                            password: {
+                                required: "Parola Girmelisiniz",
+                                minlength: "Parola minimum 6 karakter olmalı."
+                            },
+                            newpassword: {
+                                required: "Parola girmelisiniz.",
+                                minlength: "Parola minimum 6 karakter olmalı.",
+                                equalTo: "Yeniden girdiğiniz parola eşleşmiyor."
+                            },
+                            email: {
+                                required: "Email girmelisiniz.",
+                                email:"Geçerli bir mail girin."
+                            }
+                        }
+                    });
+                });
+                var jsLang = 'tr';
+            </script>
+    
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Register by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
+

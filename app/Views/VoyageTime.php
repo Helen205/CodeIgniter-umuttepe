@@ -1,8 +1,5 @@
-<!DOCTYPE php>
 
-<php>
-
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketSalesPoints by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/VoyageTime by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:30 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +13,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - Bilet Satış Noktaları</title>
+    <title>Bus  - Sefer Saati</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -56,7 +53,6 @@
 <!-- Modal -->
 <div class="modal animate__animated animate__fadeIn" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="ebiletModalLabel" aria-hidden="true">
     <div class="modal-dialog modalheig" style="max-width: max-content !important;" role="document">
-
         <span class="modalHeader m-2"></span>
         <button type="button" class="close" style="opacity:1 !important;" data-dismiss="modal" aria-label="Close">
             <span class="fa fa-times-circle" style="color:white; font-size:52px"></span>
@@ -91,7 +87,9 @@
                     <a class="navbar-brand" href="Index.php">
                         <img class="logo" src="../../img/bus/bbbuslogo.png">
                     </a>
-                    
+                    <a class="navbar-brand d-none d-sm-block" href="../Home/Index.php">
+                        <img class="burulasLogo" src="../../img/burulasLogo.png">
+                    </a>
                 </div>
                 
 <div class="drawer drawer-right slide" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true" id="drawer-demo">
@@ -100,7 +98,6 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-8">
                     <div class="dropdown">
-                        
                         
                     </div>
                 </div>
@@ -165,7 +162,6 @@
     </div>
 </div>
 
-
                 <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#drawer-demo" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars" aria-hidden="true"></i>
 
@@ -178,7 +174,7 @@
                         <li class="nav-item  ml-4 mr-4 ">
                             <a class="nav-link SemiBold" href="TicketPrice.php">Fiyat Listesi</a>
                         </li>
-                        <li class="nav-item ml-4  mr-4 ">
+                        <li class="nav-item ml-4  mr-4 active">
                             <a class="nav-link SemiBold" href="VoyageTime.php" tabindex="-1" aria-disabled="true">Sefer Saatleri</a>
                         </li>
                         <li class="nav-item  ml-4 mr-4 ">
@@ -190,8 +186,7 @@
                     </ul>
 
                     <div class="dropdown">
-  
-</div>
+    
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
         </a> 
@@ -219,20 +214,129 @@
 
     </div>
 
-    <link href="../../lib/leaflet/leaflet.css" rel="stylesheet" />
-<div class="headerTitle">Bilet Satış Noktaları</div>
+    
 
-<div class="city">
-    <div class="col-lg-7 specialOfferContainer">
-        <div class="specialOffer">
-            <div class="lostItem" style="text-align: justify">
-                <div id="map" style="height: 435px;">
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+<!-- Bootstrap core CSS -->
+
+<link href="../../css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../css/busmain.css" rel="stylesheet" />
+<link href="../../lib/jquery-ui/jquery-ui.css" rel="stylesheet" />
+<style>
+
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+
+
+    .ui-datepicker-inline {
+        width: 100%;
+    }
+
+    .ui-widget.ui-widget-content {
+        border: none;
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        font-weight: normal;
+        font-family: 'Montserrat-SemiBold';
+        color: #102E64;
+        font-size: 14px;
+        border: none;
+        text-align: center;
+        width: 30px;
+        height: 27px;
+    }
+
+    .ui-state-active {
+        border: 1px solid #dad55e;
+        background: #102E64 !important;
+        color: #25CE6C !important;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    .ui-widget-header {
+        border: none;
+        background: white;
+        color: #102E64;
+        font-weight: unset;
+        font-family: 'Montserrat-SemiBold';
+    }
+
+    .ui-datepicker th {
+        padding: .7em .3em;
+        text-align: center;
+        font-weight: bold;
+        border: 0;
+        color: #102E64;
+        font-family: 'Montserrat-Light';
+    }
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: none;
+        background: white;
+        color: #102E64;
+    }
+
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, php .ui-button.ui-state-disabled:hover, php .ui-button.ui-state-disabled:active {
+        background-color: white;
+    }
+</style>
+<!-- Custom styles for this template -->
+<script>
+      var lang = 'tr';
+
+</script>
+<link href="../../css/carousel.css" rel="stylesheet" />
+<div class="container">
+    <div class="city">
+        <div class="col-lg-7 fromTo">
+            <div class="row p-0 pb-4 pt-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="ml-3 mt-1">
+                        <span class="homeSearchTitle priceListFromAndToTitle">Yön</span>
+                        <select class="form-control btn dropdown-toggle SemiBold text-left selectButton" id="routes" style="height: 46px;    margin-top: 9px;" onchange="GetSeferSaatleri()"></select>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <img width="3.4%" class="searchVoyageIconStyle d-block d-sm-none" src="../../img/fiyatListesiIcon.png">
+        </div>
+        <div class="col-lg-7 fromToVoyage">
+            <div class="row border-between">
+                <div class="col-lg-6 p-3">
+                    <div id="calendar"></div>
+                </div>
+                <div class="col-lg-6 pl-0 pr-0">
+                    <div class="fromToVoyageInner w-100 text-center pt-2 pb-2">
+                        <span class="SemiBold">Seçili Yönde</span>
+                    </div>
+                    <div class="fromToVoyageTimesContainer">
+                        <div class="row mx-0 justify-content-center" id="seferSaatleri">
+
+
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
 
 
 
@@ -374,7 +478,7 @@
             <a href="https://www.facebook.com" target="_blank">
                 <img src="../../img/fb.png">
             </a>
-            <a href="https://twitter.com/bursaulasim" target="_blank">
+            <a href="https://twitter.com" target="_blank">
                 <img src="../../img/twitter.png">
             </a>
             <a href="https://www.instagram.com" target="_blank">
@@ -383,7 +487,7 @@
 
         </div>
     </div>
-    
+   
 </footer>
 
 
@@ -457,10 +561,10 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-    <script src="../../lib/leaflet/leaflet.js"></script>
-    <script src="../../js/Busjs/TicketSalesPoints.js"></script>
+    <script src="../../lib/jquery-ui/jquery-ui.js"></script>
+    <script src="../../lib/jquery-ui/datepicker-tr.js"></script>
+    <script src="../../js/Busjs/VoyageTimes.js"></script>
 
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketSalesPoints by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:41 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/VoyageTime by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:33 GMT -->

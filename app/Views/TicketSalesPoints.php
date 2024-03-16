@@ -1,8 +1,6 @@
-<!DOCTYPE php>
 
-<php>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/CancelledVoyages by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:35 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketSalesPoints by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +14,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - İptal Seferler</title>
+    <title>Bus  - Bilet Satış Noktaları</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -100,9 +98,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-8">
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
-                        </button>
+                        
                         
                     </div>
                 </div>
@@ -192,7 +188,7 @@
                     </ul>
 
                     <div class="dropdown">
-    
+  
 </div>
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
@@ -221,21 +217,27 @@
 
     </div>
 
-    
+    <link href="../../lib/leaflet/leaflet.css" rel="stylesheet" />
+<div class="headerTitle">Bilet Satış Noktaları</div>
 
-<div class="headerTitle">İptal Seferler</div>
-        <div class="city">
-            <div class="col-lg-7 specialOfferContainer">
-                <div class="specialOffer">
-                    <div class="lostItem" style="text-align: justify">
-&#x130;ptal Sefer Bulunamad&#x131;    </div>
+<div class="city">
+    <div class="col-lg-7 specialOfferContainer">
+        <div class="specialOffer">
+            <div class="lostItem" style="text-align: justify">
+                <div id="map" style="height: 435px;">
                 </div>
-
             </div>
         </div>
 
+    </div>
+</div>
 
 
+
+
+
+
+    
 
 <div class="modal animate__animated animate__fadeIn" id="warningMessageModal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" aria-hidden="true">
     <div class="modal-dialog">
@@ -310,6 +312,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal animate__animated animate__fadeIn" id="VergiValidasyonModal" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -331,7 +334,6 @@
 <!-- Modal -->
 <div class="modal animate__animated animate__fadeIn" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="ebiletModalLabel" aria-hidden="true">
     <div class="modal-dialog modalheig" style="max-width: max-content !important;" role="document">
-
         <span class="modalHeader m-2"></span>
         <div class="modal-content modalContainer modalheig" style="background-color:transparent;">
             <div class="modalHeaderContainer border-bottom-0">
@@ -355,33 +357,33 @@
         </div>
     </div>
 </div>
-</div>
     <!-- FOOTER -->
 
-    <img style="width: 100%;" src="../../img/altArea.png">
 
 
-    <footer class="d-none d-md-block d-lg-block mt-0">
-        <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
-    
-        <div class="altKusak">
-            <div class="col-lg-12 icon text-center">
-                <a href="https://www.facebook.com" target="_blank">
-                    <img src="../../img/fb.png">
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <img src="../../img/twitter.png">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="../../img/instagram.png">
-                </a>
-    
-            </div>
+<img style="width: 100%;" src="../../img/altArea.png">
+
+
+<footer class="d-none d-md-block d-lg-block mt-0">
+    <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
+
+    <div class="altKusak">
+        <div class="col-lg-12 icon text-center">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="../../img/fb.png">
+            </a>
+            <a href="https://twitter.com/bursaulasim" target="_blank">
+                <img src="../../img/twitter.png">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="../../img/instagram.png">
+            </a>
+
         </div>
-        <div class="col-lg-12 altFooter">
-           
-        </div>
-    </footer>
+    </div>
+    
+</footer>
+
 
 <script>
         var emailIncorrect = 'Email hatalı girdiniz.';
@@ -453,7 +455,9 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
+    <script src="../../lib/leaflet/leaflet.js"></script>
+    <script src="../../js/Busjs/TicketSalesPoints.js"></script>
+
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/CancelledVoyages by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:35 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketSalesPoints by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:41 GMT -->

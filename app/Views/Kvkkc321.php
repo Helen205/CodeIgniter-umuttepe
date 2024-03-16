@@ -1,7 +1,3 @@
-<!DOCTYPE php>
-
-<php>
-
 <!-- Mirrored from bus.burulas.com.tr/tr/Bus/Kvkk?pageno=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:41 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
@@ -499,4 +495,3 @@
 </body>
 
 <!-- Mirrored from bus.burulas.com.tr/tr/Bus/Kvkk?pageno=3 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:41 GMT -->
-</php>

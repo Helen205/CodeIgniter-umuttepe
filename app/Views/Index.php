@@ -1,9 +1,3 @@
-
-<!DOCTYPE.php
->
-.php
->
-
 <!-- Mirrored from bus.burulas.com.tr/tr/Bus/Index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:18 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text.php
 ;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -269,18 +263,6 @@
             </div>
         
             <div class="row selectedType p-0 pb-0">
-                <div class="col-4 m-0 p-0 pl-4">
-                    <div class="fromToSelect fromSelect pb-0 mt-2">
-                        <div class="dropdown height22">
-                            <button class="btn dropdown-toggle SemiBold text-left selectButton" type="button" id="dropdownMenuButtonFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ŞİRKET
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            </div>
-                        </div>
-                        <span class="homeSearchTitleFirst Region"></span>
-                    </div>
-                </div>
                 <div class="col-4 m-0 p-0 pl-4 fromToSelect fromSelect pb-0 mt-2">
                     
                     <div class="dropdown height22">

@@ -1,8 +1,4 @@
-<!DOCTYPE php>
-
-<php>
-
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketPrice by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:34 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/CancelledVoyages by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:35 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +12,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - Bilet Fiyatları</title>
+    <title>Bus  - İptal Seferler</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -56,6 +52,7 @@
 <!-- Modal -->
 <div class="modal animate__animated animate__fadeIn" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="ebiletModalLabel" aria-hidden="true">
     <div class="modal-dialog modalheig" style="max-width: max-content !important;" role="document">
+
         <span class="modalHeader m-2"></span>
         <button type="button" class="close" style="opacity:1 !important;" data-dismiss="modal" aria-label="Close">
             <span class="fa fa-times-circle" style="color:white; font-size:52px"></span>
@@ -100,9 +97,9 @@
                 <div class="col-8">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mobilMenuLink" id="language" style="font-size: 18px;">TR</span>
+                            
                         </button>
-                      
+                        
                     </div>
                 </div>
                 <div class="col-4">
@@ -150,7 +147,7 @@
                     Biletlerim / Bilet İptal
                 </a>
             </span>
-            
+           
             <span class="mobilMenuLink">
                 <a href="Login.php">
                     Giriş Yap
@@ -176,7 +173,7 @@
                         <li class="nav-item  mr-4">
                             <a class="nav-link SemiBold" href="Index.php">Ana Sayfa<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item  ml-4 mr-4 active">
+                        <li class="nav-item  ml-4 mr-4 ">
                             <a class="nav-link SemiBold" href="TicketPrice.php">Fiyat Listesi</a>
                         </li>
                         <li class="nav-item ml-4  mr-4 ">
@@ -191,10 +188,7 @@
                     </ul>
 
                     <div class="dropdown">
-    <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="language">TR</span>
-    </button>
-   
+    
 </div>
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
@@ -225,28 +219,17 @@
 
     
 
-<div class="container">
-    <div class="city city ml-2 mr-2">
-        <div class="col-lg-7 fromTo">
-            <div class="row p-0 pb-4 pt-3">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="ml-3 mt-1">
-                        <span class="homeSearchTitle priceListFromAndToTitle">Yön</span>
-                        <select class="form-control btn dropdown-toggle SemiBold text-left selectButton" id="routes" style="height: 46px;    margin-top: 9px;" onchange="GetBiletFiyatlari($(this).val())"></select>
-
-                        <span class="homeSearchTitle priceListFromAndTo" id="neredenTitle"></span>
-                    </div>
+<div class="headerTitle">İptal Seferler</div>
+        <div class="city">
+            <div class="col-lg-7 specialOfferContainer">
+                <div class="specialOffer">
+                    <div class="lostItem" style="text-align: justify">
+&#x130;ptal Sefer Bulunamad&#x131;    </div>
                 </div>
 
-
             </div>
-
-
-            <img width="3.4%" class="searchVoyageIconStyle d-block d-sm-none" src="../../img/fiyatListesiIcon.png">
         </div>
-        <div id="seferfiyatlari"></div>
-    </div>
-</div>
+
 
 
 
@@ -323,7 +306,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal animate__animated animate__fadeIn" id="VergiValidasyonModal" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -345,6 +327,7 @@
 <!-- Modal -->
 <div class="modal animate__animated animate__fadeIn" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="ebiletModalLabel" aria-hidden="true">
     <div class="modal-dialog modalheig" style="max-width: max-content !important;" role="document">
+
         <span class="modalHeader m-2"></span>
         <div class="modal-content modalContainer modalheig" style="background-color:transparent;">
             <div class="modalHeaderContainer border-bottom-0">
@@ -368,63 +351,33 @@
         </div>
     </div>
 </div>
+</div>
     <!-- FOOTER -->
 
+    <img style="width: 100%;" src="../../img/altArea.png">
 
 
-<img style="width: 100%;" src="../../img/altArea.png">
-
-
-<footer class="d-none d-md-block d-lg-block mt-0">
-    <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
-
-    <div class="altKusak">
-        <div class="col-lg-12 icon text-center">
-            <a href="https://www.facebook.com" target="_blank">
-                <img src="../../img/fb.png">
-            </a>
-            <a href="https://twitter.com/bursaulasim" target="_blank">
-                <img src="../../img/twitter.png">
-            </a>
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="../../img/instagram.png">
-            </a>
-
-        </div>
-    </div>
+    <footer class="d-none d-md-block d-lg-block mt-0">
+        <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
     
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-group list-group-horizontal footerEndsMenu centerFooterMenu">
-                    <li class="list-group-item">
-                        <a href="RefundConditions7834.php?pageno=6" style="color:inherit; text-decoration: none;">İade Koşulları</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="Privacypolicy1c04.php?pageno=1" style="color:inherit; text-decoration: none;">Gizlilik İlkesi</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="TravellingTerms84e6.php?pageno=0" style="color:inherit; text-decoration: none;">Yolculuk Kuralları</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="https://www.bursa.bel.tr/" target="_blank">
-                            <img class="bbblogo" src="../../img/bbblogo.png">
-                        </a>
-
-                    </li>
-                    <li class="list-group-item">
-                        <a href="Kvkkc321.php?pageno=3" style="color:inherit; text-decoration: none;">Kişisel Verilerin Korunması Kanunu</a>
-
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://burulas.com.tr/asset/file/kurumsal/KVKK-Bilgi-Talep-Formu.docx" style="color:inherit; text-decoration: none;" target="_blank">KVKK Bilgi Talep Formu</a>
-                    </li>
-
-                </ul>
+        <div class="altKusak">
+            <div class="col-lg-12 icon text-center">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="../../img/fb.png">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="../../img/twitter.png">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="../../img/instagram.png">
+                </a>
+    
             </div>
         </div>
-    </div>
-</footer>
-
+        <div class="col-lg-12 altFooter">
+           
+        </div>
+    </footer>
 
 <script>
         var emailIncorrect = 'Email hatalı girdiniz.';
@@ -496,10 +449,6 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-    <script src="../../js/Busjs/General.js"></script>
-    <script src="../../js/Busjs/Pages.js"></script>
-
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketPrice by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:34 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/CancelledVoyages by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:35 GMT -->

@@ -1,8 +1,5 @@
-<!DOCTYPE php>
 
-<php>
-
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Register by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Tickets by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:35 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/php;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
@@ -16,7 +13,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="1" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title>Bus  - Üye Olma Formu</title>
+    <title>Bus  - Biletlerim</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
 <link rel="shortcut icon" href="../../img/burulasfavicon.ico" type="image/ico">
@@ -90,9 +87,7 @@
                     <a class="navbar-brand" href="Index.php">
                         <img class="logo" src="../../img/bus/bbbuslogo.png">
                     </a>
-                    <a class="navbar-brand d-none d-sm-block" href="../Home/Index.php">
-                        <img class="burulasLogo" src="../../img/burulasLogo.png">
-                    </a>
+                    
                 </div>
                 
 <div class="drawer drawer-right slide" tabindex="-1" role="dialog" aria-labelledby="drawer-demo-title" aria-hidden="true" id="drawer-demo">
@@ -104,7 +99,7 @@
                         <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mobilMenuLink" id="language" style="font-size: 18px;">TR</span>
                         </button>
-                   
+                     
                     </div>
                 </div>
                 <div class="col-4">
@@ -187,20 +182,14 @@
                         <li class="nav-item  ml-4 mr-4 ">
                             <a class="nav-link SemiBold" href="WhereIsMyBus.php"><b style="color:red">(Canlı) </b>Otobüsüm Nerede</a>
                         </li>
-                        <li class="nav-item ml-4 mr-4 ">
+                        <li class="nav-item ml-4 mr-4 active">
                             <a class="nav-link SemiBold" href="Tickets.php" tabindex="-1" aria-disabled="true">Biletlerim / Bilet İptal</a>
                         </li>
                     </ul>
 
                     <div class="dropdown">
-    <button class="btn dropdown-toggle SemiBold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="../Bus.php">TR</a>
-        <a class="dropdown-item" href="../../en/Bus.php">EN</a>
-
-    </div>
+    
+   
 </div>
         <a href="javascript:void(0)" class="btn SemiBold" data-toggle="popover" data-placement="bottom" id="loginPopover">
             <span>Giriş Yap</span>
@@ -229,111 +218,185 @@
 
     </div>
 
-    <div class="headerTitle">Üyelik</div>
-<form id="frmRegister">
-    <div class="container">
+    <link rel="stylesheet" type="text/css" href="../../css/daterangepicker.css" />
 
-        <div class="city">
-            <div class="col-lg-7 specialOfferContainer pl-0 pr-0">
-                <div class="bsn-cont pb-2">
-                    <div class="bsn-cont-header mb-4">
-                        <div class="profile-info-header pl-5">Kimlik Bilgileri</div>
+<style>
+
+    .maindiv {
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #231F2029;
+        border-radius: 8px;
+        opacity: 1;
+        margin: auto;
+        margin-top: -60px
+    }
+
+    .myTicketsTitle {
+        text-align: left;
+        font: Regular 16px/19px Montserrat;
+        letter-spacing: 0px;
+        color: #A7ADBF;
+        opacity: 1;
+        padding-top: 29px;
+    }
+
+    .myTicketsText {
+        text-align: left;
+        font-family: 'Montserrat-Medium';
+        letter-spacing: 0px;
+        color: #102E64;
+        opacity: 1;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 1px solid #E9EBF0;
+        outline: none;
+        padding: 7px 0px;
+    }
+
+
+    .TicketsSearch {
+        background: #25CE6C 0% 0% no-repeat padding-box;
+        box-shadow: 0px 10px 20px #25CE6C80;
+        border-radius: 8px;
+        opacity: 1;
+        border-color: #25CE6C;
+        width: 63%;
+        margin-top: 14px;
+    }
+
+    .titleRow {
+        padding-top: 20px;
+        /*margin-left: 35px;*/
+    }
+
+    .TextRow {
+        margin-top: 2px;
+        /*margin-left: 35px;*/
+    }
+
+    .altCizgi {
+        border: 1px solid #E9EBF0;
+        opacity: 1;
+        width: 170px;
+        height: 0px;
+    }
+
+    .bosluk {
+        /*margin-bottom: 350px !important;*/
+    }
+
+    .modalFromTo {
+        max-width: 1200px !important;
+    }
+
+    .datepicker.dropdown-menu {
+        z-index: 10002 !important;
+    }
+    .modalheig {
+        height: 100%;
+        max-width: 900px;
+    }
+</style>
+
+<div class="container" id="test">
+
+    <div class="row  m-0">
+
+
+        <div class="col-lg-8 maindiv">
+            <div class="pb-4 pl-4 pt-4">
+
+                <div class="row TextRow">
+                    <div class="col-md-3">
+                        <div>
+                            <span class="myTicketsTitle ">PNR veya TC No</span>
+                        </div>
+                        <input class="myTicketsText" type="text" id="txtPnrOrTc" name="PnrOrTc" value="" />
+
+
                     </div>
-                    <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-lg-6">
-                            <label for="adi" class="profile-info-inner-header">Ad</label>
-                            <input class="form-control only-bottom pl-0" id="adi">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="soyadi" class="profile-info-inner-header">Soyad</label>
-                            <input class="form-control only-bottom pl-0" id="soyadi">
-                        </div>
+                    <div class="col-md-1  mt-3">
+
+
                     </div>
-                    <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-6">
-                            <label for="birthdate" class="profile-info-inner-header">Doğum Tarihi</label>
-                            <input class="form-control only-bottom pl-0" id="birthdate" data-mask="99/99/9999">
+                    <div class="col-md-3">
+                        <div>
+                            <span class="myTicketsTitle ">Soyad</span>
+
                         </div>
+                        <input class="myTicketsText" type="text" id="txtSoyad" name="Soyad" value="" />
+
                     </div>
-                    <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-lg-6 my-auto">
-                            <label for="uyruk" class="profile-info-inner-header">Uyruk</label>
-                            <select class="form-control form-control btn dropdown-toggle  text-left" id="uyruk">
-                                        <option value="0">TC</option>
-                                        <option value="1">Di&#x11F;er</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="tcidentity" class="profile-info-inner-header">T.C. Kimlik Numarası</label>
-                            <input class="form-control only-bottom pl-0" id="tcidentity" pattern="\d*" maxlength="11" type="text">
-                        </div>
+                    <div class="col-md-5 text-right">
+                        <button type="button" class="btn btn-success TicketsSearch mr-3" id="btnTicketChange">Bilet Sorgula</button>
                     </div>
-                    <div class="row pl-5 pr-5 mb-4" id="divExtra" style="display: none;">
-                        <div class="col-lg-6  my-auto">
-                            <label for="cinsiyet" class="profile-info-inner-header">Cinsiyet</label>
-                            <select class="form-control form-control btn dropdown-toggle  text-left" id="cinsiyet">
-                                        <option value="-1">L&#xFC;tfen Cinsiyet Se&#xE7;iniz</option>
-                                        <option value="0">Kad&#x131;n</option>
-                                        <option value="1">Erkek</option>
-                            </select>
-                        </div>
-                    </div>
+
+
+
                 </div>
 
-                <div class="bsn-cont pb-2">
-                    <div class="bsn-cont-header mb-4">
-                        <div class="profile-info-header pl-5">İletişim Bilgileri</div>
-                    </div>
-                    <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-lg-6">
-                            <label for="telefon" class="profile-info-inner-header">Cep Telefonu</label>
-                            <input class="form-control only-bottom pl-0" id="telefon" data-mask="999 999 99 99">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="email" class="profile-info-inner-header">E-Mail</label>
-                            <input class="form-control only-bottom pl-0" id="email" name="email">
-                        </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div id="Tickets">
+
+    </div>
+    <hr />
+    <!-- Üyelik Biletlerim -->
+    <div id="biletlerim">
+
+    </div>
+    <!-- Üyelik Biletlerim -->
+</div>
+
+<!-- Modal -->
+<div class="modal animate__animated animate__fadeIn" id="ebiletModal" tabindex="-1" role="dialog" aria-labelledby="ebiletModalLabel" aria-hidden="true">
+    <div class="modal-dialog modalheig" role="document">
+        <span class="modalHeader m-2">Bilet</span>
+        <button type="button" class="close" style="opacity:1 !important;" data-dismiss="modal" aria-label="Close">
+            <span class="fa fa-times-circle" style="color:white; font-size:52px"></span>
+        </button>
+        <div class="modal-content modalContainer modalheig">
+            <div class="modal-header modalHeaderContainer border-bottom-0">
+                <div class="modalSubHeaderText"></div>
+
+            </div>
+            <div class="modal-body" style="overflow-y:scroll">
+                <div class="row" style="height:80%;overflow-y: scroll;">
+                    <div id="seyahatDownloadDiv">
+                    </div>                    
+                    <div class="col-12">
+                        <canvas id="seyehatCanvas"></canvas>
                     </div>
                 </div>
-
-                <div class="bsn-cont pb-2">
-                    <div class="bsn-cont-header mb-4">
-                        <div class="profile-info-header pl-5">Şifre Oluştur</div>
-                    </div>
-                    <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-lg-6">
-                            <label for="passwordregister" class="profile-info-inner-header">Şifre</label>
-                            <input class="form-control only-bottom pl-0" id="passwordregister" name="password" type="password">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="newpassword" class="profile-info-inner-header">Şifre Tekrar</label>
-                            <input class="form-control only-bottom pl-0" id="newpassword" name="newpassword" type="password">
-                        </div>
+                <br />
+                <div class="row" style="height:80%;overflow-y: scroll;">
+                    <div id="eBiletDownloadDiv">
+                    </div>                    
+                    <div class="col-12">
+                        <canvas id="ebiletCanvas"></canvas>
                     </div>
                 </div>
-
-                <div class="bsn-cont pb-2">
-                    <div class="bsn-cont-header mb-4">
-                        <div class="profile-info-header pl-5">Üyelik Sözleşmesi</div>
-                    </div>
-                    
-                    <div class="form-check pl-5 mb-4 pb-3">
-                        <input type="checkbox" class="form-check-input ml-1" id="exampleCheck2">
-                        <label class="form-check-label pl-5" for="exampleCheck2">
-                            <span class="signup-green"><a href="Kvkkc321.php?pageno=3" target="_blank">KVKK Kuralları</a></span>
-                            <span class="contact-regular">’nı okudum ve kabul ediyorum.</span>
-                        </label>
-                    </div>
-                   
-                </div>
-
-                <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="Register()" value="Bilgilerimi Kaydet"/>
-                <a href="Index.php" class="btn btn-danger btn-block p-2 mb-3">İptal</a>
+            </div>
+            <div class="modal-footer modalFooterContainer d-inline justify-content-start">
 
             </div>
         </div>
     </div>
-</form>
+</div>
+
+
+
+
+
 
 
 
@@ -483,13 +546,9 @@
 
         </div>
     </div>
-   
+    
 </footer>
 
-
-
-
-    
 
 <script>
         var emailIncorrect = 'Email hatalı girdiniz.';
@@ -561,47 +620,17 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/48891566" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
     
-        <script src="../../js/Userjs/BusUser4ea7.js?v=lU6Rrpmq25x6EvJCEsRWzzSnlnozYcgVvCYT5z7wwCM"></script>
+    <script src="../../js/PDFJS/pdf.js"></script>
+    <script src="../../js/PDFJS/pdf.worker.js"></script>
+    <script src="../../js/PDFJS/pf.js"></script>
+    <script src="../../js/Busjs/IndexDateTimePicker.js"></script>
+    <script src="../../js/Busjs/Tickets803a.js?v=R-gQkWjnP2ZHZeFXKqWejECkuhKgkPaiuxTcxAKYLmA"></script>
+    <script type="text/javascript" src="../../js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="../../js/daterangepicker.js"></script>
 
-            <script>
-                $(document).ready(function () {
-                    $("#frmRegister").validate({
-                        rules: {
-                            password: {
-                                required: true,
-                                minlength: 6
-                            },
-                            newpassword: {
-                                required: true,
-                                minlength: 6,
-                                equalTo: "#passwordregister"
-                            },
-                            email: {
-                                required: true,
-                                email: true
-                            }
-                        },
-                        messages: {
-                            password: {
-                                required: "Parola Girmelisiniz",
-                                minlength: "Parola minimum 6 karakter olmalı."
-                            },
-                            newpassword: {
-                                required: "Parola girmelisiniz.",
-                                minlength: "Parola minimum 6 karakter olmalı.",
-                                equalTo: "Yeniden girdiğiniz parola eşleşmiyor."
-                            },
-                            email: {
-                                required: "Email girmelisiniz.",
-                                email:"Geçerli bir mail girin."
-                            }
-                        }
-                    });
-                });
-                var jsLang = 'tr';
-            </script>
-    
+
+
 </body>
 
-<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Register by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:40 GMT -->
-</php>
+<!-- Mirrored from bus.burulas.com.tr/tr/Bus/Tickets by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:39 GMT -->
+
