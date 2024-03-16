@@ -88,7 +88,7 @@
                         <img class="logo" src="../../img/bus/bbbuslogo.png">
                     </a>
                     <a class="navbar-brand d-none d-sm-block" href="../Home/Index.php">
-                        <img class="burulasLogo" src="../../img/burulasLogo.png">
+                       
                     </a>
                 </div>
                 

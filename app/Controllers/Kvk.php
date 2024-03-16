@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Kvk extends BaseController
+class kvkc321 extends BaseController
 {
-    public function Kvkkc321(): string
+    public function kvkc321(): string
     {
-        return view('Kvkkc321');
+        return view('kvkc321');
     }
 }

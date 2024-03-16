@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class TicketSalePoints extends BaseController
+class ticketSalePoints extends BaseController
 {
-    public function TicketSalePoints(): string
+    public function ticketSalePoints(): string
     {
-        return view('TicketSalePoints');
+        return view('ticketSalePoints');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Kayit extends BaseController
+class register extends BaseController
 {
-    public function Register(): string
+    public function register(): string
     {
-        return view('Register');
+        return view('register');
     }
 }
