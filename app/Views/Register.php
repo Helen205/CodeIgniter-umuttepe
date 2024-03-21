@@ -483,6 +483,39 @@
    
 </footer>
 
+<script>
+    $(document).ready(function () {
+        $("#frmRegister").submit(function (e) {
+            e.preventDefault(); // Formun normal submit işlemini engelle
+            
+            // Form verilerini al
+            var formData = $(this).serialize();
+
+            // AJAX isteği yap
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url('register/register1'); ?>", // Controller'ın metodu
+                data: formData,
+                dataType: "json",
+                success: function (response) {
+                    // Başarılı yanıt alındığında
+                    if (response.isSuccess) {
+                        alert(response.statusMessage);
+                        // Başka bir sayfaya yönlendirme veya istediğiniz işlemi yapabilirsiniz
+                    } else {
+                        // Başarısız yanıt alındığında
+                        alert(response.statusMessage);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // AJAX isteği sırasında bir hata oluştuğunda
+                    console.error(xhr.responseText);
+                    alert("Bir hata oluştu, lütfen daha sonra tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>
 
 
 

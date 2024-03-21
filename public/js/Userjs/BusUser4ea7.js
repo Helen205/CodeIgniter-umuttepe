@@ -9,6 +9,7 @@
 });
 
 
+
 function validateEmail(email) {
     var re = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
     return re.test(email);
@@ -38,10 +39,7 @@ $("#uyruk").change(function () {
 function RegisterControl() {
     var err = false;
     var errMsg = "";
-    if (!$('#exampleCheck1').is(":checked")) {
-        err = true;
-        errMsg = "Kayıt olmak için Taşıma Kuralları'nı kabul etmelisiniz.";
-    }
+  
 
     if (!$('#exampleCheck2').is(":checked")) {
         err = true;
@@ -118,6 +116,7 @@ function RegisterControl() {
         return false;
     }
 }
+
 
 
 function CheckTcNo(a) {
