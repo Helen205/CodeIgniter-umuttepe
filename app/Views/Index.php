@@ -256,10 +256,6 @@
                     <input class="inputRadio" type='radio' value='0' name='radio' id='radio1' checked />
                     <label class="fromandtwo inputLabel" for='radio1'><i id="radio1fa" class='fa fa-circle' style='color:#ffa507' aria-hidden='true'></i> Tek Yön</label>
                 </div>
-                <div class="col-6">
-                    <input class="inputRadio" type='radio' value='1' name='radio' id='radio2' />
-                    <label class="fromandtwo inputLabel" for='radio2'><i id="radio2fa" class='fa fa-circle-o' style='color:#A7ADBF' aria-hidden='true'></i> Gidiş - Dönüş</label>
-                </div>
             </div>
         
             <div class="row selectedType p-0 pb-0">
@@ -268,6 +264,12 @@
                     <div class="dropdown height22">
                         <button class="btn dropdown-toggle SemiBold text-left selectButton" type="button" id="dropdownMenuButtonFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             NEREDEN
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Istanbul', 'from')">Istanbul</a>
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Ankara', 'from')">Ankara</a>
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Izmir', 'from')">Izmir</a>
+                                    <!-- Diğer şehirler buraya eklenebilir -->
+                                </div>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         </div>
@@ -280,6 +282,12 @@
                         <div class="dropdown height22">
                             <button class="btn dropdown-toggle SemiBold text-left selectButton" type="button" id="dropdownMenuButtonTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 NEREYE
+                                <div class="dropdown-menu" id="dropdownMenuButtonToItems" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Istanbul', 'to')">Istanbul</a>
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Ankara', 'to')">Ankara</a>
+                                    <a class="dropdown-item" href="#" onclick="selectCity('Izmir', 'to')">Izmir</a>
+                                    <!-- Diğer şehirler buraya eklenebilir -->
+                                </div>
                             </button>
                             <div class="dropdown-menu" id="dropdownMenuButtonToItems" aria-labelledby="dropdownMenuButton">
                             </div>
@@ -293,21 +301,6 @@
                             <div id="tekGunAd" class="homeSearchTitle text-center"></div>
                             <div class="calendarDate text-center"><i class="fa fa-calendar" style="margin-left: -70px; padding-right: 50px;"></i><text id="tekGun"></text></div>
                             <div id="tekAy" class="homeSearchTitle text-center"></div>
-                        </div>
-                    </div>
-                    <div class="fromToSelect row selectedDate" style="display: none;" id="datetimepicker2">
-                        <div class="col-5" id="datetimepicker21">
-                            <div id="gitGunAd" class="homeSearchTitle text-center"></div>
-                            <div class="calendarDate text-center"><i class="fa fa-calendar" style="margin-left: -20px; padding-right: 5px;"></i><text id="gitGun"></text></div>
-                            <div id="gitAy" class="homeSearchTitle text-center"></div>
-                        </div>
-                        <div class="col-2 my-auto text-center">
-                            ...
-                        </div>
-                        <div class="col-5" id="datetimepicker22">
-                            <div id="gelGunAd" class="homeSearchTitle text-center"></div>
-                            <div class="calendarDate text-center"><i class="fa fa-calendar" style="margin-left: -20px; padding-right: 5px;"></i><text id="gelGun"></text></div>
-                            <div id="gelAy" class="homeSearchTitle text-center"></div>
                         </div>
                     </div>
                 </div>
@@ -822,40 +815,6 @@
                 tittle = "You have to proof your BBBUS paper tickets.!";
             }
 
-            if (checkBox.checked == true) {
-                $('#icerikalani').php
-                (uyariMetni);
-                var checkBox = $('#Plaka')[0];
-                $('#onayla').php
-                (onay);
-                $('#vazgec').php
-                (vaz);
-
-                $('#modaltitle').php
-                (tittle);
-
-                $('#IgaCheck').modal({ backdrop: 'static', keyboard: false });
-
-                //swal({
-                //        title:tittle,
-                //       .php
-                : uyariMetni,
-                //        imageUrl: "../../content/images/bilet.png",
-                //        showCancelButton: true,
-                //        confirmButtonColor: '#3085d6',
-                //        cancelButtonColor: '#d33',
-                //        confirmButtonText: onay,
-                //        cancelButtonText : vaz,
-                //        reverseButtons: true,
-                //        customClass: 'swal-wide'
-                //    })
-                //    .then((result) => {
-                //        if (!result.value) {
-                //            checkBox.checked=false;
-                //        }
-                //    });
-
-            }
         });
 
         function ParkUyari() {
@@ -879,4 +838,12 @@
 <script>
     var campaignsText = 'Kampanyalar';
     var announcementAndNewsText = 'Duyurular & Haberler';
+    function selectCity(city, direction) {
+    if (direction === 'from') {
+        document.getElementById('dropdownMenuButtonFrom').innerHTML = city;
+    } else if (direction === 'to') {
+        document.getElementById('dropdownMenuButtonTo').innerHTML = city;
+    }
+}
+
 </script>
