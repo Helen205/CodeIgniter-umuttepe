@@ -221,29 +221,36 @@
     </div>
 
     
-
-<div class="container">
+    <div class="container">
     <div class="city city ml-2 mr-2">
         <div class="col-lg-7 fromTo">
             <div class="row p-0 pb-4 pt-3">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="ml-3 mt-1">
-                        <span class="homeSearchTitle priceListFromAndToTitle">Yön</span>
-                        <select class="form-control btn dropdown-toggle SemiBold text-left selectButton" id="routes" style="height: 46px;    margin-top: 9px;" onchange="GetBiletFiyatlari($(this).val())"></select>
-
+                        <form action="<?php echo base_url('ticketprice/getBiletFiyatlari'); ?>" method="post">
+                            <span class="homeSearchTitle priceListFromAndToTitle">Yön</span>
+                            <select class="form-control btn dropdown-toggle SemiBold text-left selectButton" name="seferSaat" style="height: 46px; margin-top: 9px;" onchange="this.form.submit()">
+                                <?php foreach($seferSaatlerUcretler as $sefer): ?>
+                                    <option value="<?php echo $sefer['sefer_saat']; ?>"><?php echo $sefer['sefer_saat'] . ' - ' . $sefer['ucret']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </form>
                         <span class="homeSearchTitle priceListFromAndTo" id="neredenTitle"></span>
                     </div>
                 </div>
-
-
             </div>
-
-
             <img width="3.4%" class="searchVoyageIconStyle d-block d-sm-none" src="../../img/fiyatListesiIcon.png">
         </div>
-        <div id="seferfiyatlari"></div>
+        <div id="seferfiyatlari">
+            <?php if(isset($biletFiyatlari)): ?>
+                <?php foreach($biletFiyatlari as $fiyat): ?>
+                    <p><?php echo $fiyat['ucret']; ?></p>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </div>
+
 
 
 
@@ -497,5 +504,34 @@
     <script src="../../js/Busjs/Pages.js"></script>
 
 </body>
-
 <!-- Mirrored from bus.burulas.com.tr/tr/Bus/TicketPrice by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2024 09:25:34 GMT -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Sefer saati seçildiğinde tetiklenecek olay
+    $('#routes').change(function() {
+        var seferSaat = $(this).val(); // Seçilen sefer saatini al
+
+        // AJAX isteği ile getBiletFiyatlari metodunu çağırma
+        $.ajax({
+            url: '<?= base_url('/ticketprice/getBiletFiyatlari') ?>', // Controller'ınızın URL'si
+            type: 'POST',
+            data: {seferSaat: seferSaat},
+            dataType: 'json',
+            success: function(response) {
+                // Başarılı yanıt alındığında yapılacak işlemler
+
+                // Örneğin, bilet fiyatlarını 'seferfiyatlari' id'li bir div içine yerleştir
+                $('#seferfiyatlari').empty(); // Önceki içeriği temizle
+                $.each(response.biletFiyatlari, function(index, fiyat) {
+                    $('#seferfiyatlari').append('<p>Bilet Fiyatı: ' + fiyat.ucret + ' TL</p>');
+                });
+            },
+            error: function(request, status, error) {
+                // Hata oluşursa
+                console.log("Bir hata oluştu", request.responseText);
+            }
+        });
+    });
+});
+</script>
