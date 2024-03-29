@@ -227,7 +227,7 @@
     </div>
 
     <div class="headerTitle">Üyelik</div>
-<form id="frmRegister">
+<form id="frmRegister"action="register/register_user" method="post">
     <div class="container">
 
         <div class="city">
@@ -237,44 +237,41 @@
                         <div class="profile-info-header pl-5">Kimlik Bilgileri</div>
                     </div>
                     <div class="row pl-5 pr-5 mb-4">
-                        <div class="col-lg-6">
-                            <label for="adi" class="profile-info-inner-header">Ad</label>
-                            <input class="form-control only-bottom pl-0" id="adi">
+                        <div class="col-lg-6">                            <label for="adi" class="profile-info-inner-header">Ad</label>
+                            <input class="form-control only-bottom pl-0" id="adi" name="adi">
                         </div>
                         <div class="col-lg-6">
                             <label for="soyadi" class="profile-info-inner-header">Soyad</label>
-                            <input class="form-control only-bottom pl-0" id="soyadi">
+                            <input class="form-control only-bottom pl-0" id="soyadi" name="soyadi">
                         </div>
                     </div>
                     <div class="row pl-5 pr-5 mb-4">
                         <div class="col-6">
                             <label for="birthdate" class="profile-info-inner-header">Doğum Tarihi</label>
-                            <input class="form-control only-bottom pl-0" id="birthdate" data-mask="99/99/9999">
+                            <input class="form-control only-bottom pl-0" id="birthdate" name="birthdate" data-mask="99/99/9999">
                         </div>
                     </div>
                     <div class="row pl-5 pr-5 mb-4">
                         <div class="col-lg-6 my-auto">
                             <label for="uyruk" class="profile-info-inner-header">Uyruk</label>
-                            <select class="form-control form-control btn dropdown-toggle  text-left" id="uyruk">
+                            <select class="form-control form-control btn dropdown-toggle  text-left" id="uyruk" name="uyruk">
                                         <option value="0">TC</option>
                                         <option value="1">Di&#x11F;er</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
                             <label for="tcidentity" class="profile-info-inner-header">T.C. Kimlik Numarası</label>
-                            <input class="form-control only-bottom pl-0" id="tcidentity" pattern="\d*" maxlength="11" type="text">
+                            <input class="form-control only-bottom pl-0" id="tcidentity" name="tcidentity" pattern="\d*" maxlength="11" type="text" autocomplete="off">
                         </div>
                     </div>
-                    <div class="row pl-5 pr-5 mb-4" id="divExtra" style="display: none;">
-                        <div class="col-lg-6  my-auto">
+                    <div class="col-lg-6  my-auto">
                             <label for="cinsiyet" class="profile-info-inner-header">Cinsiyet</label>
                             <select class="form-control form-control btn dropdown-toggle  text-left" id="cinsiyet">
                                         <option value="-1">L&#xFC;tfen Cinsiyet Se&#xE7;iniz</option>
-                                        <option value="0">Kad&#x131;n</option>
-                                        <option value="1">Erkek</option>
+                                        <option value="1">Kad&#x131;n</option>
+                                        <option value="0">Erkek</option>
                             </select>
                         </div>
-                    </div>
                 </div>
 
                 <div class="bsn-cont pb-2">
@@ -284,11 +281,11 @@
                     <div class="row pl-5 pr-5 mb-4">
                         <div class="col-lg-6">
                             <label for="telefon" class="profile-info-inner-header">Cep Telefonu</label>
-                            <input class="form-control only-bottom pl-0" id="telefon" data-mask="999 999 99 99">
+                            <input class="form-control only-bottom pl-0" id="telefon" name="telefon" data-mask="999 999 99 99">
                         </div>
                         <div class="col-lg-6">
                             <label for="email" class="profile-info-inner-header">E-Mail</label>
-                            <input class="form-control only-bottom pl-0" id="email" name="email">
+                            <input class="form-control only-bottom pl-0" id="email" name="email" name="email">
                         </div>
                     </div>
                 </div>
@@ -324,7 +321,7 @@
                    
                 </div>
 
-                <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="Register()" value="Bilgilerimi Kaydet"/>
+                <input type="button" class="btn btn-success btn-block p-2 mb-3" onclick="register_user()" value="Bilgilerimi Kaydet"/>
                 <a href="Index.php" class="btn btn-danger btn-block p-2 mb-3">İptal</a>
 
             </div>
@@ -629,7 +626,62 @@
                     });
                 });
                 var jsLang = 'tr';
+
+                // Kayıt formunu işle
+        function register_user() {
+            // Form verilerini al
+            var adi = document.getElementById('adi').value;
+            var soyadi = document.getElementById('soyadi').value;
+            var birthdate = document.getElementById('birthdate').value;
+            var uyruk = document.getElementById('uyruk').value;
+            var tcidentity = document.getElementById('tcidentity').value;
+            var cinsiyet = document.getElementById('cinsiyet').value;
+            var telefon = document.getElementById('telefon').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('passwordregister').value;
+
+            // Form verilerini bir nesne olarak paketle
+            var userData = {
+                adi: adi,
+                soyadi: soyadi,
+                birthdate: birthdate,
+                uyruk: uyruk,
+                tcidentity: tcidentity,
+                cinsiyet: cinsiyet,
+                telefon: telefon,
+                email: email,
+                password: password
+            };
+
+            // POST isteği gönder
+            fetch('/register/register_user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Sunucudan gelen yanıtı işle
+                if (data.success) {
+                    // Başarılı kayıt durumu
+                    alert('Kayıt başarıyla tamamlandı.');
+                    window.location.href = '/register'; // Kayıt sayfasına yeniden yönlendir
+                } else {
+                    // Kayıt hatası
+                    alert('Kayıt sırasında bir hata oluştu.');
+                }
+            })
+            .catch(error => {
+                // Hata durumu
+                console.error('Hata:', error);
+                alert('Bir hata oluştu, lütfen tekrar deneyin.');
+            });
+        }
+
             </script>
+            
     
 </body>
 

@@ -17,7 +17,7 @@
     <title>Bus  - WhereIsMyBus</title>
     
 <link rel="stylesheet" href="../../css/bundles/headerstylesbus.min3cca.css?v=3hiw7TBPkTCK1Po144SBalRutOVlyYVUoqYSl46XB9A" />
->
+
 <meta name="yandex-verification" content="6d70bba854a0acb5" />
 
 <style>

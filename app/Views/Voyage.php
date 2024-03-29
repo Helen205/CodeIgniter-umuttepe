@@ -454,7 +454,8 @@
                     <span class="SemiBold titleVoyage">
                         21 Mart 2024 Per&#x15F;embe
                     </span>
-                    <button class="rightDate buttonVoyageDate" onclick="GetVoyagesByDate('21.3.2024 00:00:00',false,true)">       <i class="fa fa-chevron-right"></i></button>
+                    <button class="rightDate buttonVoyageDate" onclick="GetVoyagesByDate('21.3.2024 00:00:00',false,true)">       
+                    <i class="fa fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>

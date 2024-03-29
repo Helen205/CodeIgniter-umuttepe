@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Models\RegisterModel;
 use CodeIgniter\Controller;
 
-class Register extends Controller
+class RegisterController extends Controller
 {
-    public function register()
+    public function index()
     {
         // Kayıt formunu yükle
         return view('register');
@@ -22,7 +22,6 @@ class Register extends Controller
         $adi = $request->getPost('adi');
         $soyadi = $request->getPost('soyadi');
         $birthdate = $request->getPost('birthdate');
-        $uyruk = $request->getPost('uyruk');
         $tcidentity = $request->getPost('tcidentity');
         $cinsiyet = $request->getPost('cinsiyet');
         $telefon = $request->getPost('telefon');
@@ -34,7 +33,6 @@ class Register extends Controller
             'adi' => $adi,
             'soyadi' => $soyadi,
             'birthdate' => $birthdate,
-            'uyruk' => $uyruk,
             'tcidentity' => $tcidentity,
             'cinsiyet' => $cinsiyet,
             'telefon' => $telefon,

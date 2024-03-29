@@ -1,0 +1,12 @@
+CRITICAL - 2024-03-22 12:30:27 --> ErrorException: Undefined variable $seferler
+in APPPATH\Views\Voyage.php on line 507.
+ 1 APPPATH\Views\Voyage.php(507): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $seferler', 'C:\\xampp\\htdocs\\CodeIgniter-umuttepe\\app\\Views\\Voyage.php', 507)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\CodeIgniter-umuttepe\\app\\Views\\Voyage.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('voyage', [], true)
+ 5 APPPATH\Controllers\Voyage.php(16): view('voyage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Voyage->voyage()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Voyage))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\CodeIgniter-umuttepe\\public\\index.php')
