@@ -23,13 +23,15 @@ class Database extends Config
 
     /**
      * The default database connection.
+     *
+     * @var array<string, mixed>
      */
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
         'password'     => '',
-        'database'     => 'umuttepe_turizm',
+        'database'     => 'busbooking_ezfare',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -48,6 +50,8 @@ class Database extends Config
     /**
      * This database connection is used when
      * running PHPUnit database tests.
+     *
+     * @var array<string, mixed>
      */
     public array $tests = [
         'DSN'         => '',
